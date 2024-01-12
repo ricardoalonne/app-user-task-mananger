@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="header">
+    <h1>{{ title }}</h1>
+    <div class="actions">
+      <button mat-raised-button routerLink="/user-tasks">
+        <mat-icon>arrow_back</mat-icon>Volver a Bandeja
+      </button>
+    </div>
+  </div>
+
+  <div class="flex flex-column gap-3">
+    <mat-card>
+      <mat-card-content>
+        <div class="flex align-items-center gap-2">
+          <mat-form-field class="w-100">
+            <mat-label>Descripción</mat-label>
+            <input matInput readonly [value]="currentUserTask.description" />
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label>Tags</mat-label>
+            <input matInput readonly [value]="currentUserTask.tags" />
+          </mat-form-field>
+        </div>
+        <div class="flex align-items-center gap-2">
+          <mat-form-field class="w-100">
+            <mat-label>Usuario</mat-label>
+            <input matInput readonly [value]="currentUserTask.userFullName" />
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label>Prioridad</mat-label>
+            <input matInput readonly [value]="currentUserTask.priorityName" />
+          </mat-form-field>
+        </div>
+        <div class="flex align-items-center gap-2">
+          <mat-form-field class="w-100">
+            <mat-label>¿Se finalizó?</mat-label>
+            <input
+              matInput
+              readonly
+              [value]="currentUserTask.finished ? 'Sí' : 'No'"
+            />
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label>¿Se eliminó?</mat-label>
+            <input
+              matInput
+              readonly
+              [value]="currentUserTask.deleted ? 'Sí' : 'No'"
+            />
+          </mat-form-field>
+        </div>
+        <div class="flex align-items-center gap-2">
+          <mat-form-field class="w-100">
+            <mat-label>Fecha de Expiración</mat-label>
+            <input
+              matInput
+              readonly
+              [value]="
+                currentUserTask.expirationAt | date : 'dd/MM/yyyy HH:mm:ss'
+              "
+            />
+            <mat-icon matSuffix>event</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="flex align-items-center gap-2">
+          <mat-form-field class="w-100">
+            <mat-label>Fecha de Creación</mat-label>
+            <input
+              matInput
+              readonly
+              [value]="currentUserTask.createdAt | date : 'dd/MM/yyyy HH:mm:ss'"
+            />
+            <mat-icon matSuffix>event</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label>Fecha de Modificación</mat-label>
+            <input
+              matInput
+              readonly
+              [value]="currentUserTask.updatedAt | date : 'dd/MM/yyyy HH:mm:ss'"
+            />
+            <mat-icon matSuffix>event</mat-icon>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <div class="flex justify-content-between">
+      <div class="flex gap-2">
+        <button mat-raised-button color="warn" (click)="onRemove()">
+          Eliminar
+        </button>
+        <button color="accent" mat-raised-button (click)="onFinish()">
+          Finalizar
+        </button>
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/user-tasks/edit', currentUserTask.id]"
+      >
+        Editar
+      </button>
+    </div>
+  </div>
+</div>

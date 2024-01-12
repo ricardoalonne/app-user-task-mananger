@@ -1,0 +1,13 @@
+@for(item of items; track item.id){
+<a
+  class="menu-button"
+  mat-button
+  routerLink="/{{ item.routerLink }}"
+  [routerLinkActiveOptions]="{ exact: item.exact }"
+  routerLinkActive="menu-active"
+  (click)="drawer.toggle()"
+>
+  <mat-icon>{{ item.iconName }}</mat-icon>
+  {{ item.label }}
+</a>
+}

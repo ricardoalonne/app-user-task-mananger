@@ -1,0 +1,60 @@
+<div class="card flex flex-column gap-3">
+  <div class="flex justify-content-between align-items-center w-100">
+    <h1>Home</h1>
+  </div>
+
+  <div class="card flex flex-column gap-3 m-0">
+    <div class="quick-actions-container">
+      <div class="quick-action-item">
+        <div class="quick-action-indicador">
+          <div class="quick-action-item-total">{{ totalUsers }}</div>
+          <span class="quick-action-item-label"> Usuarios </span>
+        </div>
+        <div class="quick-action-options">
+          <button mat-stroked-button class="w-100" routerLink="/users">
+            <mat-icon>person</mat-icon> Bandeja
+          </button>
+          <button mat-stroked-button class="w-100" routerLink="/users/create">
+            <mat-icon>add_circle</mat-icon> Registrar
+          </button>
+        </div>
+      </div>
+      <div class="quick-action-item">
+        <div class="quick-action-indicador">
+          <div class="quick-action-item-total">{{ totalPriorities }}</div>
+          <span class="quick-action-item-label"> Prioridades </span>
+        </div>
+        <div class="quick-action-options">
+          <button mat-stroked-button class="w-100" routerLink="/priorities">
+            <mat-icon>nearby_error</mat-icon> Bandeja
+          </button>
+          <button
+            mat-stroked-button
+            class="w-100"
+            routerLink="/priorities/create"
+          >
+            <mat-icon>add_circle</mat-icon> Registrar
+          </button>
+        </div>
+      </div>
+      <div class="quick-action-item">
+        <div class="quick-action-indicador">
+          <div class="quick-action-item-total">{{ totalUserTasks }}</div>
+          <span class="quick-action-item-label"> Tareas </span>
+        </div>
+        <div class="quick-action-options">
+          <button mat-stroked-button class="w-100" routerLink="/user-tasks">
+            <mat-icon>task</mat-icon> Bandeja
+          </button>
+          <button
+            mat-stroked-button
+            class="w-100"
+            routerLink="/user-tasks/create"
+          >
+            <mat-icon>add_circle</mat-icon> Registrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+.button-action {
+  height: 6.5rem !important;
+  width: 7.5rem !important;
+}
+
+.quick-actions-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+
+  .quick-action-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .quick-action-indicador {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: solid 0.15rem;
+      border-radius: 1rem;
+      padding: 1rem 1.2rem;
+      width: 115px;
+      height: 100px;
+
+      .quick-action-item-total {
+        font-size: 3.8rem;
+        line-height: normal;
+      }
+
+      .quick-action-item-label {
+        font-size: 1.25rem;
+      }
+    }
+
+    .quick-action-options {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.65rem;
+      height: auto;
+    }
+  }
+}

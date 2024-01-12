@@ -1,0 +1,20 @@
+<app-topbar [drawer]="drawer"></app-topbar>
+
+<mat-drawer-container class="drawer-container">
+  <mat-drawer
+    class="drawer-content"
+    #drawer
+    mode="side"
+    [opened]="isSmallScreen$ | async"
+  >
+    <app-sidebar [drawer]="drawer"> </app-sidebar>
+  </mat-drawer>
+
+  <div class="main-container">
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</mat-drawer-container>
+
+<app-footer></app-footer>

@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="header">
+    <h1>{{ title }}</h1>
+    <div class="actions">
+      <button mat-raised-button routerLink="/priorities">
+        <mat-icon>arrow_back</mat-icon>Volver a Bandeja
+      </button>
+    </div>
+  </div>
+
+  <form [formGroup]="formPriority" (submit)="onSubmit()">
+    <div class="flex flex-column gap-3">
+      <mat-card>
+        <mat-card-content>
+          <div class="flex align-items-center gap-2">
+            <mat-form-field class="w-100">
+              <mat-label>Nombre</mat-label>
+              <input matInput formControlName="name" />
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <div class="flex justify-content-between">
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="onClear()"
+          type="button"
+        >
+          Limpiar
+        </button>
+        <button mat-raised-button color="primary" type="submit">
+          Registrar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="header">
+    <h1>{{ title }}</h1>
+    <div class="actions">
+      <button mat-raised-button routerLink="create">
+        <mat-icon>add</mat-icon>Nuevo Usuario
+      </button>
+    </div>
+  </div>
+
+  <div>
+    <div class="data-table">
+      <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombres</th>
+            <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellidos</th>
+            <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+            <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Celular</th>
+            <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
+          </ng-container>
+          <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Fecha Creación
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.createdAt | date : "dd/MM/yyyy HH:mm:ss" }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="updatedAt">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Fecha Edición
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.updatedAt | date : "dd/MM/yyyy HH:mm:ss" }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+              <div class="table-actions">
+                <button
+                  mat-mini-fab
+                  matTooltip="Editar"
+                  [routerLink]="['edit', element.id]"
+                >
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button
+                  mat-mini-fab
+                  matTooltip="Ver detalles"
+                  [routerLink]="['detail', element.id]"
+                >
+                  <mat-icon>visibility</mat-icon>
+                </button>
+                <button
+                  mat-mini-fab
+                  color="warn"
+                  matTooltip="Eliminar"
+                  (click)="onDelete(element)"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr class="mat-row" *matNoDataRow>
+            <td
+              class="mat-cell empty-message"
+              [attr.colspan]="displayedColumns.length"
+            >
+              Sin usuarios para mostrar.
+              <a routerLink="/user-tasks/create">Agregue</a> usuarios y vuelva
+              aquí.
+            </td>
+          </tr>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 20]"
+        [disabled]="displayedColumns.length <= 0"
+        showFirstLastButtons
+      >
+      </mat-paginator>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="header">
+    <h1>{{ title }}</h1>
+    <div class="actions">
+      <button mat-raised-button routerLink="/users">
+        <mat-icon>arrow_back</mat-icon>Volver a Bandeja
+      </button>
+    </div>
+  </div>
+
+  <form [formGroup]="formUser" (submit)="onSubmit()">
+    <div class="flex flex-column gap-3">
+      <mat-card>
+        <mat-card-content>
+          <div class="flex align-items-center gap-2">
+            <mat-form-field class="w-100">
+              <mat-label>Nombre</mat-label>
+              <input matInput formControlName="name" />
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Apellido</mat-label>
+              <input matInput formControlName="lastName" />
+            </mat-form-field>
+          </div>
+          <div class="flex align-items-center gap-2">
+            <mat-form-field class="w-100">
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                placeholder="user@example.com"
+                formControlName="email"
+              />
+              <mat-icon matSuffix>mail</mat-icon>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Celular</mat-label>
+              <input matInput formControlName="phone" />
+              <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <div class="flex justify-content-between">
+        <button
+          mat-raised-button
+          color="warn"
+          type="button"
+          (click)="onClear()"
+        >
+          Limpiar
+        </button>
+        <button mat-raised-button color="primary" type="submit">Editar</button>
+      </div>
+    </div>
+  </form>
+</div>

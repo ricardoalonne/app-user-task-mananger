@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Finalizar {{ currentUserTask.description }}</h1>
+<div mat-dialog-content>
+  La tarea de {{ currentUserTask.userFullName }} se finalizará.
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>Cancelar</button>
+  <button
+    mat-raised-button
+    mat-dialog-close
+    cdkFocusInitial
+    color="accent"
+    (click)="onFinish()"
+  >
+    Finalizar
+  </button>
+</div>

@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="header">
+    <h1>{{ title }}</h1>
+    <div class="actions">
+      <button mat-raised-button routerLink="/users">
+        <mat-icon>arrow_back</mat-icon>Volver a Bandeja
+      </button>
+    </div>
+  </div>
+
+  <div class="flex flex-column gap-3">
+    <mat-card>
+      <mat-card-content>
+        <div class="flex align-items-center gap-2">
+          <mat-form-field class="w-100">
+            <mat-label>Nombre</mat-label>
+            <input matInput readonly [value]="currentUser.name" />
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label>Apellido</mat-label>
+            <input matInput readonly [value]="currentUser.lastName" />
+          </mat-form-field>
+        </div>
+        <div class="flex align-items-center gap-2">
+          <mat-form-field class="w-100">
+            <mat-label>Email</mat-label>
+            <input matInput readonly [value]="currentUser.email" />
+            <mat-icon matSuffix>mail</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label>Celular</mat-label>
+            <input matInput readonly [value]="currentUser.phone" />
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="flex align-items-center gap-2">
+          <mat-form-field class="w-100">
+            <mat-label>Fecha de Creación</mat-label>
+            <input
+              matInput
+              readonly
+              [value]="currentUser.createdAt | date : 'dd/MM/yyyy HH:mm:ss'"
+            />
+            <mat-icon matSuffix>event</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label>Fecha de Modificación</mat-label>
+            <input
+              matInput
+              readonly
+              [value]="currentUser.updatedAt | date : 'dd/MM/yyyy HH:mm:ss'"
+            />
+            <mat-icon matSuffix>event</mat-icon>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    @if(currentUser.id > 0){
+    <app-user-tasks-grid [userId]="currentUser.id"></app-user-tasks-grid>
+    }
+
+    <div class="flex justify-content-between">
+      <button mat-raised-button color="warn" (click)="onDelete()">
+        Eliminar
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/users/edit', currentUser.id]"
+      >
+        Editar
+      </button>
+    </div>
+  </div>
+</div>

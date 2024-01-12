@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Eliminar a {{ currentUser.name }}</h1>
+<div mat-dialog-content>
+  El usuario se eliminará y esta acción es irreversible.
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>Cancelar</button>
+  <button
+    mat-raised-button
+    mat-dialog-close
+    cdkFocusInitial
+    color="warn"
+    (click)="onDelete()"
+  >
+    Eliminar
+  </button>
+</div>

@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="header">
+    <h1>{{ title }}</h1>
+    <div class="actions">
+      <button mat-raised-button routerLink="/user-tasks">
+        <mat-icon>arrow_back</mat-icon>Volver a Bandeja
+      </button>
+    </div>
+  </div>
+
+  <form [formGroup]="formUserTask" (submit)="onSubmit()">
+    <div class="flex flex-column gap-3">
+      <mat-card>
+        <mat-card-content>
+          <div class="flex align-items-center gap-2">
+            <mat-form-field class="w-100">
+              <mat-label>Descripción</mat-label>
+              <input matInput formControlName="description" />
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Tags</mat-label>
+              <input matInput formControlName="tags" />
+            </mat-form-field>
+          </div>
+          <div class="flex align-items-center gap-2">
+            <mat-form-field class="w-100">
+              <mat-label>Usuario</mat-label>
+              <mat-select formControlName="userId">
+                @for (user of users; track user) {
+                <mat-option [value]="user.id">{{ user.fullName }}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Prioridad</mat-label>
+              <mat-select formControlName="priorityId">
+                @for (priority of priorities; track priority) {
+                <mat-option [value]="priority.id">{{
+                  priority.name
+                }}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="flex align-items-center">
+            <mat-form-field class="w-100">
+              <mat-label>Fecha de Expiración</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                formControlName="expirationAt"
+              />
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="flex align-items-center gap-2">
+            <mat-slide-toggle formControlName="finished"
+              >Finalizado</mat-slide-toggle
+            >
+            <mat-slide-toggle formControlName="deleted"
+              >Eliminado</mat-slide-toggle
+            >
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <div class="flex justify-content-between">
+        <button
+          mat-raised-button
+          color="warn"
+          type="button"
+          (click)="onClear()"
+        >
+          Limpiar
+        </button>
+        <button mat-raised-button color="primary" type="submit">Editar</button>
+      </div>
+    </div>
+  </form>
+</div>
