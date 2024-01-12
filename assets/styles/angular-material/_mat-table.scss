@@ -1,0 +1,27 @@
+.data-table {
+  position: relative;
+  background-color: var(--mat-table-background-color);
+  padding: 0.5rem;
+
+  .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+
+    .table-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .empty-message {
+      text-align: center;
+      padding: 1rem 0;
+
+      a {
+        text-decoration: none;
+        color: #ffd740;
+        font-weight: 500;
+      }
+    }
+  }
+}
