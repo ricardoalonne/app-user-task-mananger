@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Creación no disponible</h1>
+<div mat-dialog-content>{{ message }}</div>
+<div mat-dialog-actions class="flex gap-2">
+  <button mat-raised-button mat-dialog-close>Cancelar</button>
+  <div>
+    @if(!anyUsers){
+    <button
+      mat-raised-button
+      mat-dialog-close
+      cdkFocusInitial
+      color="accent"
+      (click)="onGoToCreteUser()"
+    >
+      Crear Usuario
+    </button>
+    } @if(!anyPriorities){
+    <button
+      mat-raised-button
+      mat-dialog-close
+      cdkFocusInitial
+      color="accent"
+      (click)="onGoToCretePriority()"
+    >
+      Crear Prioridad
+    </button>
+    }
+  </div>
+</div>
