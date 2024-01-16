@@ -47,8 +47,8 @@ export class EditUserTaskComponent implements OnInit {
       priorityId: [1, [Validators.required]],
     });
 
-    const userId: string = this.route.snapshot.paramMap.get('id') ?? '';
-    this.userTaskService.getUserTaskById(Number(userId)).subscribe({
+    const userTaskId: string = this.route.snapshot.paramMap.get('id') ?? '';
+    this.userTaskService.getUserTaskById(Number(userTaskId)).subscribe({
       next: (response) => {
         this.currentUserTask = response;
 
