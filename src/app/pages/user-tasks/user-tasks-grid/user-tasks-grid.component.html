@@ -2,7 +2,11 @@
   <div class="header">
     <h1>{{ title }}</h1>
     <div class="actions">
-      <button mat-raised-button routerLink="create">
+      <button
+        mat-raised-button
+        routerLink="/user-tasks/create"
+        [state]="{userId}"
+      >
         <mat-icon>add</mat-icon>Nueva Tarea
       </button>
     </div>
@@ -135,8 +139,10 @@
                   [attr.colspan]="displayedColumns.length"
                 >
                   Sin tareas para mostrar.
-                  <a routerLink="/user-tasks/create">Agregue</a> tareas y vuelva
-                  aquí.
+                  <a routerLink="/user-tasks/create" [state]="{userId}"
+                    >Agregue</a
+                  >
+                  tareas y vuelva aquí.
                 </td>
               </tr>
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
