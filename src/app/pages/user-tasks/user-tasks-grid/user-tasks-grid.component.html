@@ -107,6 +107,7 @@
                     >
                       <mat-icon>visibility</mat-icon>
                     </button>
+                    @if(!element.finished){
                     <button
                       mat-mini-fab
                       matTooltip="Finalizar"
@@ -114,6 +115,7 @@
                     >
                       <mat-icon>check_circle</mat-icon>
                     </button>
+                    } @if(!element.deleted){
                     <button
                       mat-mini-fab
                       color="warn"
@@ -122,6 +124,7 @@
                     >
                       <mat-icon>delete</mat-icon>
                     </button>
+                    }
                   </div>
                 </td>
               </ng-container>
