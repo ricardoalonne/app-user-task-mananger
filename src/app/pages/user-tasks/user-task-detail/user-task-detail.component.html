@@ -87,12 +87,15 @@
 
     <div class="flex justify-content-between">
       <div class="flex gap-2">
+        @if(!currentUserTask.deleted){
         <button mat-raised-button color="warn" (click)="onRemove()">
           Eliminar
         </button>
+        } @if(!currentUserTask.finished){
         <button color="accent" mat-raised-button (click)="onFinish()">
           Finalizar
         </button>
+        }
       </div>
       <button
         mat-raised-button
